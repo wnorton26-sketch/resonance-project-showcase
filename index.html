@@ -197,6 +197,43 @@
       margin-top: 1rem;
       font-size: 0.92rem;
     }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-top: 0.35rem;
+    }
+
+    @media (min-width: 860px) {
+      .shot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .shot {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .shot.wide {
+      grid-column: 1 / -1;
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot figcaption {
+      padding: 0.6rem 0.75rem 0.7rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--line);
+    }
   </style>
 </head>
 <body>
@@ -205,6 +242,7 @@
       <div class="brand">Resonance Showcase</div>
       <nav class="nav" aria-label="Section navigation">
         <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
         <a href="#architecture">Architecture</a>
         <a href="#fallbacks">Resilience</a>
         <a href="#experience">User Experience</a>
@@ -240,6 +278,25 @@
         <li><strong>Multiple audio modes:</strong> generated soundtrack, microphone input, and local file playback all feed the same analysis pipeline.</li>
         <li><strong>Integrated discovery:</strong> users can fetch and preview tracks that match the selected mood.</li>
       </ul>
+    </section>
+
+    <section class="section" id="screenshots">
+      <h2>Screenshots</h2>
+      <p>Real captures from the original Resonance interface showing search, visualization, and catalog controls.</p>
+      <div class="shot-grid">
+        <figure class="shot">
+          <img src="assets/screenshot-search-results.png" alt="Resonance search results list with track rows and artwork" loading="lazy" />
+          <figcaption>Search results panel with live catalog matches and album artwork.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/screenshot-visual-mode.png" alt="Resonance visualizer in happy mood with rings and glow effects" loading="lazy" />
+          <figcaption>Audio-reactive visualization state in a warm mood profile.</figcaption>
+        </figure>
+        <figure class="shot wide">
+          <img src="assets/screenshot-catalog-card.png" alt="Catalog section showing controls, auto-song option, and selected track card" loading="lazy" />
+          <figcaption>Catalog controls with mood fetch, shuffle, and preview/open actions.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section" id="architecture">
