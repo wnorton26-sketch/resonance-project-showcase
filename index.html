@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resonance - Project Showcase</title>
+  <style>
+    :root {
+      --bg: #090b12;
+      --panel: #121726;
+      --panel-2: #1a2135;
+      --text: #eaf0ff;
+      --muted: #a6b4d9;
+      --line: rgba(255, 255, 255, 0.14);
+      --accent: #7c8cff;
+      --accent-2: #4ed7ff;
+      --accent-3: #b084ff;
+      --max: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(80rem 80rem at 100% -10%, rgba(78, 215, 255, 0.11), transparent 45%),
+        radial-gradient(70rem 70rem at -10% 0%, rgba(176, 132, 255, 0.12), transparent 40%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(9, 11, 18, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .nav a, .btn {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+      color: #071022;
+      font-weight: 700;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.25rem 1rem 3rem;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(124, 140, 255, 0.2), rgba(78, 215, 255, 0.08));
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    }
+
+    p {
+      margin: 0.65rem 0;
+      color: var(--muted);
+    }
+
+    .hero-cta {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel);
+      padding: 1rem 1.05rem;
+      margin-bottom: 0.85rem;
+      scroll-margin-top: 5.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 860px) {
+      .grid.two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    li { margin: 0.35rem 0; }
+
+    strong { color: var(--text); }
+
+    code {
+      color: var(--accent-2);
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0.08rem 0.3rem;
+      font-size: 0.9em;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 700px) {
+      .kpi-row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.7rem;
+    }
+
+    .kpi .label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+
+    .kpi .value {
+      margin-top: 0.25rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 1rem;
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Resonance Showcase</div>
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#fallbacks">Resilience</a>
+        <a href="#experience">User Experience</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Resonance: Browser-native audio + reactive visuals</h1>
+      <p>
+        Resonance is a single-page web app that generates mood-driven music, analyzes live audio signals,
+        and renders animated visual feedback in real time. This page summarizes the project's most important
+        product and engineering capabilities.
+      </p>
+      <div class="hero-cta">
+        <a class="btn primary" href="https://github.com/wnorton26-sketch/resonance-feeling-music" target="_blank" rel="noopener noreferrer">Original Project Repo</a>
+        <a class="btn" href="https://wnorton26-sketch.github.io/resonance-feeling-music/" target="_blank" rel="noopener noreferrer">Original Interactive Site</a>
+      </div>
+      <div class="kpi-row" aria-label="Project quick stats">
+        <div class="kpi"><div class="label">Moods</div><div class="value">4 Profiles</div></div>
+        <div class="kpi"><div class="label">Audio Inputs</div><div class="value">3 Sources</div></div>
+        <div class="kpi"><div class="label">UI Stack</div><div class="value">HTML/CSS/JS</div></div>
+        <div class="kpi"><div class="label">Build Tools</div><div class="value">None Required</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Mood-driven synthesis:</strong> each mood uses its own tempo, note behavior, timbre, and filter profile.</li>
+        <li><strong>Audio-reactive canvas:</strong> FFT and waveform data drive mirrored spectrum bars, particles, rings, and meter activity.</li>
+        <li><strong>Multiple audio modes:</strong> generated soundtrack, microphone input, and local file playback all feed the same analysis pipeline.</li>
+        <li><strong>Integrated discovery:</strong> users can fetch and preview tracks that match the selected mood.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="architecture">
+      <h2>Technical Architecture</h2>
+      <div class="grid two">
+        <div>
+          <p><strong>Audio Graph</strong></p>
+          <ul>
+            <li>Built around <code>AudioContext</code> with separate synth and master stages.</li>
+            <li><code>BiquadFilterNode</code> applies mood EQ characteristics.</li>
+            <li><code>DynamicsCompressorNode</code> controls dynamic range before analysis/output.</li>
+            <li><code>AnalyserNode</code> provides frequency and time-domain data for rendering.</li>
+          </ul>
+        </div>
+        <div>
+          <p><strong>Rendering Loop</strong></p>
+          <ul>
+            <li><code>requestAnimationFrame</code> powers smooth continuous updates.</li>
+            <li>Energy bands (bass, mid, treble) modulate movement and color behavior.</li>
+            <li>Mood color states transition gradually for visual continuity.</li>
+            <li>Responsive canvas scales to different viewport sizes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fallbacks">
+      <h2>Reliability and Fallback Strategy</h2>
+      <p>
+        The recommendation pipeline is intentionally defensive so the experience remains useful
+        even when providers block requests or CORS constraints appear.
+      </p>
+      <ul>
+        <li>Primary iTunes query via standard/proxy fetch flow.</li>
+        <li>iTunes JSONP fallback for restrictive network contexts.</li>
+        <li>Deezer query fallback for additional catalog coverage.</li>
+        <li>Openverse fallback for browser-friendly fetch behavior.</li>
+        <li>Offline curated picks + YouTube links as final graceful degradation.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="experience">
+      <h2>User Experience Highlights</h2>
+      <ul>
+        <li>One-click mood switching with immediate sonic and visual feedback.</li>
+        <li>Transport and volume controls for generated or external audio.</li>
+        <li>Mic and file support to make visuals react to user-provided input.</li>
+        <li>Search, preview, and shuffle track suggestions inside the same flow.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Why this matters</h2>
+      <p>
+        Resonance demonstrates that a single static web page can deliver a rich interactive media
+        experience by combining Web Audio primitives, canvas rendering, and robust API handling,
+        all without framework or build complexity.
+      </p>
+    </section>
+
+    <p class="footer-note">This showcase page is separate from the original project and exists only to summarize it.</p>
+  </main>
+</body>
+</html>
